@@ -57,6 +57,7 @@ class App extends React.Component {
         <div className="center">
           <div className="chart">
             <div className="title">BITCOIN PRICE</div>
+            <div>{currentPrice}</div>
             <div className="container">
               <Chart data={data} />
             </div>

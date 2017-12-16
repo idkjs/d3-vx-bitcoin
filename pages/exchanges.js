@@ -50,8 +50,9 @@ class App extends React.Component {
             .chart {
                 width: 600px;
                 height: 400px;
-                background-color: white;
+                background-color: #27273f;
                 border-radius: 8px;
+                color: white;
             }       
             `}</style>
 

@@ -72,7 +72,7 @@ class App extends React.Component {
               <div className="spacer" />
               <div className="prices">
                 <div>{formatPrice(currentPrice)}</div>
-                <small>
+                <small className={hasIncreased ? "increased" : "decreased"}>
                   {hasIncreased ? "+" : "-"}
                   {formatPrice(diffPrice)}
                 </small>
@@ -99,6 +99,10 @@ class App extends React.Component {
             font-family: arial;
             flex-direction: column;
           }
+          .increased {
+            color: #00f1a1;
+          }
+
           .prices {
             align-items: flex-end;
             display: flex;

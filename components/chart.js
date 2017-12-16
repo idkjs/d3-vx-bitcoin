@@ -1,6 +1,4 @@
-/** Get with and heigth from this components parent
- * container and pass it to <Chart params with HOC.
- * 
+/** 
  * svg is expecting width and heigth params since we moved title in here
  * we need to calculate the margines for rendering the title inside 
  * this component. We can do that with the info we get from parentSize
@@ -19,9 +17,6 @@ function Chart({parentWidth, parentHeight}) {
     const height = parentHeight - margin.top - margin.bottom;
 	return (
         <div>
-            <div className="title">
-                CAC40 VS NASDAQ 
-            </div>
             <svg width={width} height={height}>
                 <rect width={width} height={height} fill="steelblue"/>
             </svg>

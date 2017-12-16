@@ -54,6 +54,8 @@ class App extends React.Component {
     // var to get difference in current/last price. def firstPrice - subtract from current
     const firstPrice = prices[0].price;
     const diffPrice = currentPrice - firstPrice;
+    // boolean to check if that price has increased or decreased
+    const hasIncreased = diffPrice > 0;
     // console.log(currentPrice);
     return (
       <div className="app">
@@ -70,7 +72,10 @@ class App extends React.Component {
               <div className="spacer" />
               <div className="prices">
                 <div>{formatPrice(currentPrice)}</div>
-                <small>{formatPrice(diffPrice)}</small>
+                <small>
+                  {hasIncreased ? "+" : "-"}
+                  {formatPrice(diffPrice)}
+                </small>
               </div>
             </div>
             <div className="container">

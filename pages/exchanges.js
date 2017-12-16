@@ -34,15 +34,25 @@ class App extends React.Component {
                 <div className="chart">Chart</div>
             </div>
             <style jsx>{`
-            .app {
+            .app,
+            .center {
                 display:flex;
                 position: absolute;
                 top:0;
                 left:0;
                 right:0;
                 bottom:0;
+                flex:1;
+                justify-content: center;
+                align-items: center;
+                font-family: arial;
             }
-           
+            .chart {
+                width: 600px;
+                height: 400px;
+                background-color: white;
+                border-radius: 8px;
+            }       
             `}</style>
 
         </div>

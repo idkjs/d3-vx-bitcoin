@@ -68,7 +68,7 @@ class App extends React.Component {
                 </div>
               </div>
               <div className="spacer" />
-              <div>
+              <div className="prices">
                 <div>{formatPrice(currentPrice)}</div>
                 <div>{formatPrice(diffPrice)}</div>
               </div>
@@ -92,6 +92,11 @@ class App extends React.Component {
             justify-content: center;
             align-items: center;
             font-family: arial;
+            flex-direction: column;
+          }
+          .prices {
+            align-items: flex-end;
+            display: flex;
             flex-direction: column;
           }
           .spacer {

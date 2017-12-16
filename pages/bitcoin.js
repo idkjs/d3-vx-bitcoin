@@ -1,6 +1,7 @@
 import { LinearGradient } from "@vx/gradient";
 import { withScreenSize } from "@vx/responsive";
 import Chart from "../components/chart";
+import formatPrice from "../utils/formatPrice";
 
 function Background({ width, height }) {
   return (
@@ -65,7 +66,7 @@ class App extends React.Component {
               </div>
               <div className="spacer" />
               <div>
-                <div>{currentPrice}</div>
+                <div>{formatPrice(currentPrice)}</div>
               </div>
             </div>
             <div className="container">

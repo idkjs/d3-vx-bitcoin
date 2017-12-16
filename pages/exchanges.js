@@ -30,6 +30,9 @@ class App extends React.Component {
 		return (
 		<div className="app">
             <Background width={screenWidth} height={screenHeight} />
+            <div className="center">
+                <div className="chart">Chart</div>
+            </div>
             <style jsx>{`
             .app {
                 display:flex;
@@ -39,6 +42,7 @@ class App extends React.Component {
                 right:0;
                 bottom:0;
             }
+           
             `}</style>
 
         </div>

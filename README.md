@@ -8,3 +8,5 @@
 ## Gradients in SVG
 - see: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients
 
+## quandl.com api
+- `tsQv3o6PCk1j23GhkqQi`

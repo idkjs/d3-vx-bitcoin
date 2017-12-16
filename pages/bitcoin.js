@@ -56,12 +56,14 @@ class App extends React.Component {
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
           <div className="chart">
-            <div className="title">
-              <div>BITCOIN PRICE</div>
-              <div>
-                <small>last 30 days</small>
+            <div className="titlebar">
+              <div className="title">
+                <div>BITCOIN PRICE</div>
+                <div>
+                  <small>last 30 days</small>
+                </div>
+                <div>{currentPrice}</div>
               </div>
-              {/* <div>{currentPrice}</div> */}
             </div>
             <div className="container">
               <Chart data={data} />
@@ -83,6 +85,10 @@ class App extends React.Component {
             align-items: center;
             font-family: arial;
             flex-direction: column;
+          }
+          .titlebar {
+            display: flex;
+            flex-direction: row;
           }
           .title {
             padding: 15px;

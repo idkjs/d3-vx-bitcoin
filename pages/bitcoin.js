@@ -50,14 +50,19 @@ class App extends React.Component {
      *
      */
     const currentPrice = prices[prices.length - 1].price;
-    console.log(currentPrice);
+    // console.log(currentPrice);
     return (
       <div className="app">
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
           <div className="chart">
-            <div className="title">BITCOIN PRICE</div>
-            <div>{currentPrice}</div>
+            <div className="title">
+              <div>BITCOIN PRICE</div>
+              <div>
+                <small>last 30 days</small>
+              </div>
+              {/* <div>{currentPrice}</div> */}
+            </div>
             <div className="container">
               <Chart data={data} />
             </div>

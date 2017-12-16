@@ -24,9 +24,19 @@ class App extends React.Component {
 			data: {}
 		};
 	}
+	componentDidMount() {
+		fetch('http://localhost:8000')
+        .then(res => res.json())
+        .then(json => {
+            this.setState({
+                data: json
+            });
+        });
+	}
 	render() {
 		const {screenWidth, screenHeight} = this.props;
 		const {data} = this.state;
+		console.log(data);
 		return (
 		<div className="app">
             <Background width={screenWidth} height={screenHeight} />

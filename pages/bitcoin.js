@@ -51,6 +51,9 @@ class App extends React.Component {
      *
      */
     const currentPrice = prices[prices.length - 1].price;
+    // var to get difference in current/last price. def firstPrice - subtract from current
+    const firstPrice = prices[0].price;
+    const diffPrice = currentPrice - firstPrice;
     // console.log(currentPrice);
     return (
       <div className="app">
@@ -67,6 +70,7 @@ class App extends React.Component {
               <div className="spacer" />
               <div>
                 <div>{formatPrice(currentPrice)}</div>
+                <div>{formatPrice(diffPrice)}</div>
               </div>
             </div>
             <div className="container">

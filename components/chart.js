@@ -1,8 +1,8 @@
 import { withParentSize } from "@vx/responsive";
-// import d3 methods to render x and y axis
+// Import d3 methods to render x and y axis
 import { scaleTime, scaleLinear } from "@vx/scale";
 
-function Chart({ parentWidth, parentHeight }) {
+function Chart({ data, parentWidth, parentHeight }) {
   /** Define margin for this div to pass to calculation for svg */
   const margin = {
     top: 15,
@@ -13,7 +13,7 @@ function Chart({ parentWidth, parentHeight }) {
   const width = parentWidth - margin.left - margin.right;
   const height = parentHeight - margin.top - margin.bottom;
 
-  /** define accessor
+  /** Define accessor
    * see: https://github.com/d3/d3-array#d3-array
    * define x and what data point we want for each x at that d/data point,
    *  then do same for y
@@ -24,7 +24,7 @@ function Chart({ parentWidth, parentHeight }) {
   const x = d => new Date(d.time);
   const y = d => d.price;
 
-  /** scale value to map value from a domain to range
+  /** Scale value to map value from a domain to range
    * see: https://github.com/d3/d3-scale
    * range defines starting point for data to show and endpoint
    * domain is what data to spread over that range.
@@ -34,7 +34,7 @@ function Chart({ parentWidth, parentHeight }) {
     range: [0, width],
     domain: [Math.min(...data.map(x)), Math.max(...data.map(x))]
   });
-  console.log(xScale);
+  console.log(xScale.domain());
   return (
     <div>
       <svg width={width} height={height}>

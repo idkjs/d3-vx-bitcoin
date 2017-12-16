@@ -1,10 +1,10 @@
-import { LinearGradient } from "@vx/gradient";
-import { withScreenSize } from "@vx/responsive";
-import Chart from "../components/chart";
-import formatPrice from "../utils/formatPrice";
+import {LinearGradient} from '@vx/gradient';
+import {withScreenSize} from '@vx/responsive';
+import Chart from '../components/chart';
+import formatPrice from '../utils/formatPrice';
 
-function Background({ width, height }) {
-  return (
+function Background({width, height}) {
+	return (
     <svg width={width} height={height}>
       <LinearGradient id="fill" vertical={false}>
         <stop stopColor="#a943e4" offset="0%" />
@@ -14,50 +14,50 @@ function Background({ width, height }) {
       {/* <rect fill attribute is pointing to <LG id="fill" */}
       <rect width={width} height={height} fill="url(#fill)" />
     </svg>
-  );
+	);
 }
 
 class App extends React.Component {
   // Set up state
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
     // Set data to empty object
-    this.state = {
-      data: {}
-    };
-  }
-  componentDidMount() {
-    fetch("https://api.coindesk.com/v1/bpi/historical/close.json")
+		this.state = {
+			data: {}
+		};
+	}
+	componentDidMount() {
+		fetch('https://api.coindesk.com/v1/bpi/historical/close.json')
       .then(res => res.json())
       .then(json => {
-        this.setState({
-          data: json
-        });
-      });
-  }
-  render() {
-    const { screenWidth, screenHeight } = this.props;
-    const { data } = this.state;
-    if (!data.bpi) {
-      return <div>Loading...</div>;
-    }
-    const prices = Object.keys(data.bpi).map(k => {
-      return {
-        time: k,
-        price: data.bpi[k]
-      };
-    });
-    /** we want to current price which will be the last item returned from our api call
+	this.setState({
+		data: json
+	});
+});
+	}
+	render() {
+		const {screenWidth, screenHeight} = this.props;
+		const {data} = this.state;
+		if (!data.bpi) {
+			return <div>Loading...</div>;
+		}
+		const prices = Object.keys(data.bpi).map(k => {
+			return {
+				time: k,
+				price: data.bpi[k]
+			};
+		});
+    /** We want to current price which will be the last item returned from our api call
      *
      */
-    const currentPrice = prices[prices.length - 1].price;
-    // var to get difference in current/last price. def firstPrice - subtract from current
-    const firstPrice = prices[0].price;
-    const diffPrice = currentPrice - firstPrice;
-    // boolean to check if that price has increased or decreased
-    const hasIncreased = diffPrice > 0;
-    // console.log(currentPrice);
-    return (
+		const currentPrice = prices[prices.length - 1].price;
+    // Var to get difference in current/last price. def firstPrice - subtract from current
+		const firstPrice = prices[0].price;
+		const diffPrice = currentPrice - firstPrice;
+    // Boolean to check if that price has increased or decreased
+		const hasIncreased = diffPrice > 0;
+    // Console.log(currentPrice);
+		return (
       <div className="app">
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
@@ -72,8 +72,8 @@ class App extends React.Component {
               <div className="spacer" />
               <div className="prices">
                 <div>{formatPrice(currentPrice)}</div>
-                <small className={hasIncreased ? "increased" : "decreased"}>
-                  {hasIncreased ? "+" : "-"}
+                <small className={hasIncreased ? 'increased' : 'decreased'}>
+                  {hasIncreased ? '+' : '-'}
                   {formatPrice(diffPrice)}
                 </small>
               </div>
@@ -140,8 +140,8 @@ class App extends React.Component {
           }
         `}</style>
       </div>
-    );
-  }
+		);
+	}
 }
 
 export default withScreenSize(App);

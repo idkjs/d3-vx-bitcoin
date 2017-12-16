@@ -1,9 +1,9 @@
-import { LinearGradient } from "@vx/gradient";
-import { withScreenSize } from "@vx/responsive";
-import Chart from "../components/chart";
+import {LinearGradient} from '@vx/gradient';
+import {withScreenSize} from '@vx/responsive';
+import Chart from '../components/chart';
 
-function Background({ width, height }) {
-  return (
+function Background({width, height}) {
+	return (
     <svg width={width} height={height}>
       <LinearGradient id="fill" vertical={false}>
         <stop stopColor="#a943e4" offset="0%" />
@@ -13,42 +13,42 @@ function Background({ width, height }) {
       {/* <rect fill attribute is pointing to <LG id="fill" */}
       <rect width={width} height={height} fill="url(#fill)" />
     </svg>
-  );
+	);
 }
 
 class App extends React.Component {
   // Set up state
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
     // Set data to empty object
-    this.state = {
-      data: {}
-    };
-  }
-  componentDidMount() {
-    fetch("http://localhost:8000")
+		this.state = {
+			data: {}
+		};
+	}
+	componentDidMount() {
+		fetch('http://localhost:8000')
       .then(res => res.json())
       .then(json => {
-        this.setState({
-          data: json
-        });
-      });
-  }
-  render() {
-    const { screenWidth, screenHeight } = this.props;
-    const { data } = this.state;
-    if (!data.length) {
-      return <div>Loading...</div>;
-    }
-    const prices = Object.keys(data).map(k => {
-      return {
-        timestamp: k,
-        NASDAQ: data[k].stocks.NASDAQ,
-        CAC40: data[k].stocks.CAC40
-      };
-    });
-    console.log(prices);
-    return (
+	this.setState({
+		data: json
+	});
+});
+	}
+	render() {
+		const {screenWidth, screenHeight} = this.props;
+		const {data} = this.state;
+		if (!data.length) {
+			return <div>Loading...</div>;
+		}
+		const prices = Object.keys(data).map(k => {
+			return {
+				timestamp: k,
+				NASDAQ: data[k].stocks.NASDAQ,
+				CAC40: data[k].stocks.CAC40
+			};
+		});
+		console.log(prices);
+		return (
       <div className="app">
         <Background width={screenWidth} height={screenHeight} />
         <div className="center">
@@ -92,8 +92,8 @@ class App extends React.Component {
           }
         `}</style>
       </div>
-    );
-  }
+		);
+	}
 }
 
 export default withScreenSize(App);

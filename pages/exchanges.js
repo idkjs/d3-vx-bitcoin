@@ -42,8 +42,11 @@ class App extends React.Component {
 		<div className="app">
             <Background width={screenWidth} height={screenHeight} />
             <div className="center">
+                <div className="title">
+                    CAC40 VS NASDAQ 
+                </div>
                 <div className="chart">
-                <Chart data={data} />
+                    <Chart data={data} />
                 </div>
             </div>
             <style jsx>{`
@@ -59,6 +62,13 @@ class App extends React.Component {
                 justify-content: center;
                 align-items: center;
                 font-family: arial;
+                flex-direction: column;
+            }
+            .title {
+                padding: 15px 15px 0;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
             }
             .chart {
                 width: 600px;

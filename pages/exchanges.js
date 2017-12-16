@@ -1,8 +1,8 @@
-//   Create a Background component for the chart using svg. Define
-//  a funtion that takes witdth and height  the produces and
-//  svg d3 dom element. define the <svg container then what
-//  we want in the container, her a <rect for our chart we can then
-//  call the component in our app component wiht some test w/h values
+// get responsive HOC d3 stuff to make Background resp.
+// call App export with it. Expects screen dimensions in coming
+//  in from react props so we destructure them of the props object
+// and pass them to Background.
+import { withScreenSize } from '@vx/responsive';
 function Background({width, height}) {
 	return (
         <svg width={width} height={height}>
@@ -25,10 +25,11 @@ class App extends React.Component {
 		};
 	}
 	render() {
-		const {data} = this.state;
+        const { screenWidth, screenHeight} = this.props;
+		const { data } = this.state;
 		return (
 		<div className="app">
-            <Background width={100} height={100} />
+            <Background width={screenWidth} height={screenHeight} />
             <style jsx>{`
             .app {
                 display:flex;
@@ -45,4 +46,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default withScreenSize(App);

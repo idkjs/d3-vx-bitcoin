@@ -30,11 +30,23 @@ function Chart({ data, parentWidth, parentHeight }) {
    * domain is what data to spread over that range.
    */
 
+  /** store min max y values to reuse later */
+
+  const minPrice = Math.min(...data.map(y));
+  const maxPrice = Math.max(...data.map(y));
   const xScale = scaleTime({
     range: [0, width],
     domain: [Math.min(...data.map(x)), Math.max(...data.map(x))]
   });
+
+  const yScale = scaleLinear({
+    range: [height, 0],
+    domain: [minPrice, maxPrice]
+  });
+
   console.log(xScale.domain());
+  console.log(yScale.domain());
+
   return (
     <div>
       <svg width={width} height={height}>

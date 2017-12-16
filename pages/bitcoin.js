@@ -96,9 +96,9 @@ class App extends React.Component {
             display: flex;
             flex-direction: row;
             align-items: center;
+            padding: 15px;
           }
           .title {
-            padding: 15px;
           }
           .container {
             flex: 1;

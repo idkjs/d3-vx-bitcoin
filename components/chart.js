@@ -5,9 +5,15 @@ import {withParentSize} from '@vx/responsive';
 
 function Chart({parentWidth, parentHeight}) {
 	return (
-        <svg width={parentWidth} height={parentHeight}>
-            <rect width={parentWidth} height={parentHeight} fill="steelblue"/>
-        </svg>
+        <div>
+            <div className="title">
+                CAC40 VS NASDAQ 
+            </div>
+            <svg width={parentWidth} height={parentHeight}>
+                <rect width={parentWidth} height={parentHeight} fill="steelblue"/>
+            </svg>
+        </div>
+        
 	);
 }
 

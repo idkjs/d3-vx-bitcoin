@@ -42,9 +42,6 @@ class App extends React.Component {
 		<div className="app">
             <Background width={screenWidth} height={screenHeight} />
             <div className="center">
-                <div className="title">
-                    CAC40 VS NASDAQ 
-                </div>
                 <div className="chart">
                     <Chart data={data} />
                 </div>

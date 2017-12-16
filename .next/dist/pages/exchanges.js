@@ -1,62 +1,73 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getPrototypeOf = require("babel-runtime/core-js/object/get-prototype-of");
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = require("babel-runtime/helpers/createClass");
+var _createClass2 = require('babel-runtime/helpers/createClass');
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = require("babel-runtime/helpers/inherits");
+var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _style = require("styled-jsx/style.js");
+var _style = require('styled-jsx/style.js');
 
 var _style2 = _interopRequireDefault(_style);
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _responsive = require("@vx/responsive");
+var _gradient = require('@vx/gradient');
+
+var _responsive = require('@vx/responsive');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _jsxFileName = "/Users/prisc_000/code/CACDEV/vx-test/pages/exchanges.js?entry";
-// get responsive HOC d3 stuff to make Background resp.
-// call App export with it. Expects screen dimensions in coming
-//  in from react props so we destructure them of the props object
-// and pass them to Background.
+var _jsxFileName = '/Users/prisc_000/code/CACDEV/vx-test/pages/exchanges.js?entry';
+
 
 function Background(_ref) {
   var width = _ref.width,
       height = _ref.height;
 
-  return _react2.default.createElement("svg", { width: width, height: height, __source: {
+  return _react2.default.createElement('svg', { width: width, height: height, __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    }
+  }, _react2.default.createElement(_gradient.LinearGradient, { id: 'fill', vertical: false, __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    }
+  }, _react2.default.createElement('stop', { stopColor: '#a943e4', offset: '0%', __source: {
       fileName: _jsxFileName,
       lineNumber: 8
     }
-  }, _react2.default.createElement("rect", {
-    width: width,
-    height: height,
-    fill: "steelblue",
-    __source: {
+  }), _react2.default.createElement('stop', { stopColor: '#f55989', offset: '50%', __source: {
       fileName: _jsxFileName,
       lineNumber: 9
+    }
+  }), _react2.default.createElement('stop', { stopColor: '#ffaf84', offset: '100%', __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    }
+  })), _react2.default.createElement('rect', { width: width, height: height, fill: 'url(#fill)', __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
     }
   }));
 }
@@ -78,15 +89,15 @@ var App = function (_React$Component) {
   }
 
   (0, _createClass3.default)(App, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       var _props = this.props,
           screenWidth = _props.screenWidth,
           screenHeight = _props.screenHeight;
       var data = this.state.data;
 
-      return _react2.default.createElement("div", {
-        className: "jsx-338705054" + " " + "app",
+      return _react2.default.createElement('div', {
+        className: 'jsx-338705054' + ' ' + 'app',
         __source: {
           fileName: _jsxFileName,
           lineNumber: 31
@@ -96,8 +107,8 @@ var App = function (_React$Component) {
           lineNumber: 32
         }
       }), _react2.default.createElement(_style2.default, {
-        styleId: "338705054",
-        css: ".app.jsx-338705054{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:absolute;top:0;left:0;right:0;bottom:0;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2V4Y2hhbmdlcy5qcz9lbnRyeSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFnQ3dCLEFBRzZCLDBFQUNNLGtCQUNiLE1BQ0MsT0FDQyxRQUNDLFNBQ1oiLCJmaWxlIjoicGFnZXMvZXhjaGFuZ2VzLmpzP2VudHJ5Iiwic291cmNlUm9vdCI6Ii9Vc2Vycy9wcmlzY18wMDAvY29kZS9DQUNERVYvdngtdGVzdCIsInNvdXJjZXNDb250ZW50IjpbIi8vIGdldCByZXNwb25zaXZlIEhPQyBkMyBzdHVmZiB0byBtYWtlIEJhY2tncm91bmQgcmVzcC5cbi8vIGNhbGwgQXBwIGV4cG9ydCB3aXRoIGl0LiBFeHBlY3RzIHNjcmVlbiBkaW1lbnNpb25zIGluIGNvbWluZ1xuLy8gIGluIGZyb20gcmVhY3QgcHJvcHMgc28gd2UgZGVzdHJ1Y3R1cmUgdGhlbSBvZiB0aGUgcHJvcHMgb2JqZWN0XG4vLyBhbmQgcGFzcyB0aGVtIHRvIEJhY2tncm91bmQuXG5pbXBvcnQgeyB3aXRoU2NyZWVuU2l6ZSB9IGZyb20gJ0B2eC9yZXNwb25zaXZlJztcbmZ1bmN0aW9uIEJhY2tncm91bmQoe3dpZHRoLCBoZWlnaHR9KSB7XG5cdHJldHVybiAoXG4gICAgICAgIDxzdmcgd2lkdGg9e3dpZHRofSBoZWlnaHQ9e2hlaWdodH0+XG4gICAgICAgICAgICA8cmVjdFxuICAgICAgICAgICAgd2lkdGg9e3dpZHRofVxuICAgICAgICAgICAgaGVpZ2h0PXtoZWlnaHR9XG4gICAgICAgICAgICBmaWxsPVwic3RlZWxibHVlXCJcbiAgICAgICAgICAgIC8+XG4gICAgICAgIDwvc3ZnPlxuXHQpO1xufVxuXG5jbGFzcyBBcHAgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnQge1xuICAgIC8vIFNldCB1cCBzdGF0ZVxuXHRjb25zdHJ1Y3Rvcihwcm9wcykge1xuXHRcdHN1cGVyKHByb3BzKTtcbiAgICAgICAgLy8gU2V0IGRhdGEgdG8gZW1wdHkgb2JqZWN0XG5cdFx0dGhpcy5zdGF0ZSA9IHtcblx0XHRcdGRhdGE6IHt9XG5cdFx0fTtcblx0fVxuXHRyZW5kZXIoKSB7XG4gICAgICAgIGNvbnN0IHsgc2NyZWVuV2lkdGgsIHNjcmVlbkhlaWdodH0gPSB0aGlzLnByb3BzO1xuXHRcdGNvbnN0IHsgZGF0YSB9ID0gdGhpcy5zdGF0ZTtcblx0XHRyZXR1cm4gKFxuXHRcdDxkaXYgY2xhc3NOYW1lPVwiYXBwXCI+XG4gICAgICAgICAgICA8QmFja2dyb3VuZCB3aWR0aD17c2NyZWVuV2lkdGh9IGhlaWdodD17c2NyZWVuSGVpZ2h0fSAvPlxuICAgICAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgICAgLmFwcCB7XG4gICAgICAgICAgICAgICAgZGlzcGxheTpmbGV4O1xuICAgICAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgICAgICAgICB0b3A6MDtcbiAgICAgICAgICAgICAgICBsZWZ0OjA7XG4gICAgICAgICAgICAgICAgcmlnaHQ6MDtcbiAgICAgICAgICAgICAgICBib3R0b206MDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIGB9PC9zdHlsZT5cblxuICAgICAgICA8L2Rpdj5cblx0XHQpO1xuXHR9XG59XG5cbmV4cG9ydCBkZWZhdWx0IHdpdGhTY3JlZW5TaXplKEFwcCk7XG4iXX0= */\n/*@ sourceURL=pages/exchanges.js?entry */"
+        styleId: '338705054',
+        css: '.app.jsx-338705054{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:absolute;top:0;left:0;right:0;bottom:0;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2V4Y2hhbmdlcy5qcz9lbnRyeSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFnQ3dCLEFBRzZCLDBFQUNNLGtCQUNiLE1BQ0MsT0FDQyxRQUNDLFNBQ1oiLCJmaWxlIjoicGFnZXMvZXhjaGFuZ2VzLmpzP2VudHJ5Iiwic291cmNlUm9vdCI6Ii9Vc2Vycy9wcmlzY18wMDAvY29kZS9DQUNERVYvdngtdGVzdCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7TGluZWFyR3JhZGllbnR9IGZyb20gJ0B2eC9ncmFkaWVudCc7XG5pbXBvcnQge3dpdGhTY3JlZW5TaXplfSBmcm9tICdAdngvcmVzcG9uc2l2ZSc7XG5cbmZ1bmN0aW9uIEJhY2tncm91bmQoe3dpZHRoLCBoZWlnaHR9KSB7XG5cdHJldHVybiAoXG4gICAgICAgIDxzdmcgd2lkdGg9e3dpZHRofSBoZWlnaHQ9e2hlaWdodH0+XG4gICAgICAgICAgICA8TGluZWFyR3JhZGllbnQgaWQ9XCJmaWxsXCIgdmVydGljYWw9e2ZhbHNlfT5cbiAgICAgICAgICAgICAgICA8c3RvcCBzdG9wQ29sb3I9XCIjYTk0M2U0XCIgb2Zmc2V0PVwiMCVcIiAvPlxuICAgICAgICAgICAgICAgIDxzdG9wIHN0b3BDb2xvcj1cIiNmNTU5ODlcIiBvZmZzZXQ9XCI1MCVcIiAvPlxuICAgICAgICAgICAgICAgIDxzdG9wIHN0b3BDb2xvcj1cIiNmZmFmODRcIiBvZmZzZXQ9XCIxMDAlXCIgLz5cbiAgICAgICAgICAgIDwvTGluZWFyR3JhZGllbnQ+XG4gICAgICAgICAgICB7LyogPHJlY3QgZmlsbCBhdHRyaWJ1dGUgaXMgcG9pbnRpbmcgdG8gPExHIGlkPVwiZmlsbFwiICovfVxuICAgICAgICA8cmVjdCB3aWR0aD17d2lkdGh9IGhlaWdodD17aGVpZ2h0fSBmaWxsPVwidXJsKCNmaWxsKVwiLz5cbiAgICAgICAgPC9zdmc+XG5cdCk7XG59XG5cbmNsYXNzIEFwcCBleHRlbmRzIFJlYWN0LkNvbXBvbmVudCB7XG4gICAgLy8gU2V0IHVwIHN0YXRlXG5cdGNvbnN0cnVjdG9yKHByb3BzKSB7XG5cdFx0c3VwZXIocHJvcHMpO1xuICAgICAgICAvLyBTZXQgZGF0YSB0byBlbXB0eSBvYmplY3Rcblx0XHR0aGlzLnN0YXRlID0ge1xuXHRcdFx0ZGF0YToge31cblx0XHR9O1xuXHR9XG5cdHJlbmRlcigpIHtcblx0XHRjb25zdCB7c2NyZWVuV2lkdGgsIHNjcmVlbkhlaWdodH0gPSB0aGlzLnByb3BzO1xuXHRcdGNvbnN0IHtkYXRhfSA9IHRoaXMuc3RhdGU7XG5cdFx0cmV0dXJuIChcblx0XHQ8ZGl2IGNsYXNzTmFtZT1cImFwcFwiPlxuICAgICAgICAgICAgPEJhY2tncm91bmQgd2lkdGg9e3NjcmVlbldpZHRofSBoZWlnaHQ9e3NjcmVlbkhlaWdodH0gLz5cbiAgICAgICAgICAgIDxzdHlsZSBqc3g+e2BcbiAgICAgICAgICAgIC5hcHAge1xuICAgICAgICAgICAgICAgIGRpc3BsYXk6ZmxleDtcbiAgICAgICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgICAgICAgICAgdG9wOjA7XG4gICAgICAgICAgICAgICAgbGVmdDowO1xuICAgICAgICAgICAgICAgIHJpZ2h0OjA7XG4gICAgICAgICAgICAgICAgYm90dG9tOjA7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBgfTwvc3R5bGU+XG5cbiAgICAgICAgPC9kaXY+XG5cdFx0KTtcblx0fVxufVxuXG5leHBvcnQgZGVmYXVsdCB3aXRoU2NyZWVuU2l6ZShBcHApO1xuIl19 */\n/*@ sourceURL=pages/exchanges.js?entry */'
       }));
     }
   }]);
@@ -106,4 +117,4 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = (0, _responsive.withScreenSize)(App);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2V4Y2hhbmdlcy5qcyJdLCJuYW1lcyI6WyJ3aXRoU2NyZWVuU2l6ZSIsIkJhY2tncm91bmQiLCJ3aWR0aCIsImhlaWdodCIsIkFwcCIsInByb3BzIiwic3RhdGUiLCJkYXRhIiwic2NyZWVuV2lkdGgiLCJzY3JlZW5IZWlnaHQiLCJSZWFjdCIsIkNvbXBvbmVudCJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUlBLEFBQVM7Ozs7O0FBSlQ7QUFDQTtBQUNBO0FBQ0E7O0FBRUEsU0FBQSxBQUFTLGlCQUE0QjtNQUFoQixBQUFnQixhQUFoQixBQUFnQjtNQUFULEFBQVMsY0FBVCxBQUFTLEFBQ3BDOzt5QkFDTyxjQUFBLFNBQUssT0FBTCxBQUFZLE9BQU8sUUFBbkIsQUFBMkI7Z0JBQTNCO2tCQUFBLEFBQ0k7QUFESjtHQUFBO1dBQ0ksQUFDTyxBQUNQO1lBRkEsQUFFUSxBQUNSO1VBSEEsQUFHSzs7Z0JBSEw7a0JBRlgsQUFDTyxBQUNJLEFBT1g7QUFQVztBQUNBOzs7SUFRTixBOytCQUNGOztBQUNIO2VBQUEsQUFBWSxPQUFPO3dDQUVaOztBQUZZO2dJQUFBLEFBQ1osQUFFTjs7VUFBQSxBQUFLO1lBSGEsQUFHbEIsQUFBYSxBQUNOO0FBRE0sQUFDWjtXQUVEOzs7Ozs2QkFDUTttQkFDbUMsS0FEbkMsQUFDd0M7VUFEeEMsQUFDTSxxQkFETixBQUNNO1VBRE4sQUFDbUIsc0JBRG5CLEFBQ21CO1VBRG5CLEFBRUEsT0FBUyxLQUZULEFBRWMsTUFGZCxBQUVBLEFBQ1I7OzZCQUNBLGNBQUE7MkNBQUEsQUFBZTs7b0JBQWY7c0JBQUEsQUFDVTtBQURWO0FBQUEsT0FBQSxnQ0FDVSxBQUFDLGNBQVcsT0FBWixBQUFtQixhQUFhLFFBQWhDLEFBQXdDO29CQUF4QztzQkFEVixBQUNVO0FBQUE7O2lCQURWO2FBREEsQUFDQSxBQWVBO0FBZkE7Ozs7O0VBYmdCLGdCQUFNLEEsQUErQnhCOztrQkFBZSxnQ0FBZixBQUFlLEFBQWUiLCJmaWxlIjoiZXhjaGFuZ2VzLmpzP2VudHJ5Iiwic291cmNlUm9vdCI6Ii9Vc2Vycy9wcmlzY18wMDAvY29kZS9DQUNERVYvdngtdGVzdCJ9
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2V4Y2hhbmdlcy5qcyJdLCJuYW1lcyI6WyJMaW5lYXJHcmFkaWVudCIsIndpdGhTY3JlZW5TaXplIiwiQmFja2dyb3VuZCIsIndpZHRoIiwiaGVpZ2h0IiwiQXBwIiwicHJvcHMiLCJzdGF0ZSIsImRhdGEiLCJzY3JlZW5XaWR0aCIsInNjcmVlbkhlaWdodCIsIlJlYWN0IiwiQ29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsQUFBUTs7QUFDUixBQUFROzs7Ozs7O0FBRVIsU0FBQSxBQUFTLGlCQUE0QjtNQUFoQixBQUFnQixhQUFoQixBQUFnQjtNQUFULEFBQVMsY0FBVCxBQUFTLEFBQ3BDOzt5QkFDTyxjQUFBLFNBQUssT0FBTCxBQUFZLE9BQU8sUUFBbkIsQUFBMkI7Z0JBQTNCO2tCQUFBLEFBQ0k7QUFESjtHQUFBLGtCQUNJLEFBQUMsMENBQWUsSUFBaEIsQUFBbUIsUUFBTyxVQUExQixBQUFvQztnQkFBcEM7a0JBQUEsQUFDSTtBQURKOzZDQUNVLFdBQU4sQUFBZ0IsV0FBVSxRQUExQixBQUFpQztnQkFBakM7a0JBREosQUFDSSxBQUNBO0FBREE7OENBQ00sV0FBTixBQUFnQixXQUFVLFFBQTFCLEFBQWlDO2dCQUFqQztrQkFGSixBQUVJLEFBQ0E7QUFEQTs4Q0FDTSxXQUFOLEFBQWdCLFdBQVUsUUFBMUIsQUFBaUM7Z0JBQWpDO2tCQUpSLEFBQ0ksQUFHSSxBQUdSO0FBSFE7K0NBR0YsT0FBTixBQUFhLE9BQU8sUUFBcEIsQUFBNEIsUUFBUSxNQUFwQyxBQUF5QztnQkFBekM7a0JBUlAsQUFDTyxBQU9BLEFBR1A7QUFITzs7OztJLEFBS0Y7K0JBQ0Y7O0FBQ0g7ZUFBQSxBQUFZLE9BQU87d0NBRVo7O0FBRlk7Z0lBQUEsQUFDWixBQUVOOztVQUFBLEFBQUs7WUFIYSxBQUdsQixBQUFhLEFBQ047QUFETSxBQUNaO1dBRUQ7Ozs7OzZCQUNRO21CQUM0QixLQUQ1QixBQUNpQztVQURqQyxBQUNELHFCQURDLEFBQ0Q7VUFEQyxBQUNZLHNCQURaLEFBQ1k7VUFEWixBQUVELE9BQVEsS0FGUCxBQUVZLE1BRlosQUFFRCxBQUNQOzs2QkFDQSxjQUFBOzJDQUFBLEFBQWU7O29CQUFmO3NCQUFBLEFBQ1U7QUFEVjtBQUFBLE9BQUEsZ0NBQ1UsQUFBQyxjQUFXLE9BQVosQUFBbUIsYUFBYSxRQUFoQyxBQUF3QztvQkFBeEM7c0JBRFYsQUFDVTtBQUFBOztpQkFEVjthQURBLEFBQ0EsQUFlQTtBQWZBOzs7OztFQWJnQixnQkFBTSxBLEFBK0J4Qjs7a0JBQWUsZ0NBQWYsQUFBZSxBQUFlIiwiZmlsZSI6ImV4Y2hhbmdlcy5qcz9lbnRyeSIsInNvdXJjZVJvb3QiOiIvVXNlcnMvcHJpc2NfMDAwL2NvZGUvQ0FDREVWL3Z4LXRlc3QifQ==

@@ -1,16 +1,16 @@
-// get responsive HOC d3 stuff to make Background resp.
-// call App export with it. Expects screen dimensions in coming
-//  in from react props so we destructure them of the props object
-// and pass them to Background.
-import { withScreenSize } from '@vx/responsive';
+import {LinearGradient} from '@vx/gradient';
+import {withScreenSize} from '@vx/responsive';
+
 function Background({width, height}) {
 	return (
         <svg width={width} height={height}>
-            <rect
-            width={width}
-            height={height}
-            fill="steelblue"
-            />
+            <LinearGradient id="fill" vertical={false}>
+                <stop stopColor="#a943e4" offset="0%" />
+                <stop stopColor="#f55989" offset="50%" />
+                <stop stopColor="#ffaf84" offset="100%" />
+            </LinearGradient>
+            {/* <rect fill attribute is pointing to <LG id="fill" */}
+        <rect width={width} height={height} fill="url(#fill)"/>
         </svg>
 	);
 }
@@ -25,8 +25,8 @@ class App extends React.Component {
 		};
 	}
 	render() {
-        const { screenWidth, screenHeight} = this.props;
-		const { data } = this.state;
+		const {screenWidth, screenHeight} = this.props;
+		const {data} = this.state;
 		return (
 		<div className="app">
             <Background width={screenWidth} height={screenHeight} />

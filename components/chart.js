@@ -1,6 +1,7 @@
 import { withParentSize } from "@vx/responsive";
 // Import d3 methods to render x and y axis
 import { scaleTime, scaleLinear } from "@vx/scale";
+import { LinePath } from "@vx/shape";
 
 function Chart({ data, parentWidth, parentHeight }) {
   /** Define margin for this div to pass to calculation for svg */
@@ -47,10 +48,12 @@ function Chart({ data, parentWidth, parentHeight }) {
   console.log(xScale.domain());
   console.log(yScale.domain());
 
+  //   call <LinePath, pass in the data, xScale, yScale domain mappers,
+  //  and x and y accessors
   return (
     <div>
       <svg width={width} height={height}>
-        <rect width={width} height={height} fill="steelblue" />
+        <LinePath data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
       </svg>
     </div>
   );

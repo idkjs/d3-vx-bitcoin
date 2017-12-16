@@ -22,3 +22,5 @@
 
 * see: https://github.com/d3/d3-scale
   \*/
+
+- accessors - xScale, yScale gets us our data. Now we need a shape to draw the data into. In Charts we use something like LinePath from @vx/shape

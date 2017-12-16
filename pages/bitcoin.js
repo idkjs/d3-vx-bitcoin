@@ -62,6 +62,9 @@ class App extends React.Component {
                 <div>
                   <small>last 30 days</small>
                 </div>
+              </div>
+              <div className="spacer" />
+              <div>
                 <div>{currentPrice}</div>
               </div>
             </div>
@@ -86,9 +89,13 @@ class App extends React.Component {
             font-family: arial;
             flex-direction: column;
           }
+          .spacer {
+            flex: 1;
+          }
           .titlebar {
             display: flex;
             flex-direction: row;
+            align-items: center;
           }
           .title {
             padding: 15px;

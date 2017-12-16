@@ -70,7 +70,7 @@ class App extends React.Component {
               <div className="spacer" />
               <div className="prices">
                 <div>{formatPrice(currentPrice)}</div>
-                <div>{formatPrice(diffPrice)}</div>
+                <small>{formatPrice(diffPrice)}</small>
               </div>
             </div>
             <div className="container">

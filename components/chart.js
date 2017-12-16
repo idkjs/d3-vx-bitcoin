@@ -21,7 +21,7 @@ function Chart({ parentWidth, parentHeight }) {
    * for y we want the price on that d / data point
    */
 
-  const x = d => new Date(d.date);
+  const x = d => new Date(d.time);
   const y = d => d.price;
 
   /** scale value to map value from a domain to range
@@ -32,8 +32,9 @@ function Chart({ parentWidth, parentHeight }) {
 
   const xScale = scaleTime({
     range: [0, width],
-    domain: []
+    domain: [Math.min(...data.map(x)), Math.max(...data.map(x))]
   });
+  console.log(xScale);
   return (
     <div>
       <svg width={width} height={height}>

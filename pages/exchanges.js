@@ -66,6 +66,9 @@ class App extends React.Component {
                 font-family: arial;
                 flex-direction: column;
             }
+            .title {
+                padding: 15px;
+            }
             .container {
                 flex:1;
                 display:flex;
@@ -76,6 +79,9 @@ class App extends React.Component {
                 background-color: #27273f;
                 border-radius: 8px;
                 color: white;
+                display:flex;
+                flex-direction: column;
+
             }       
             `}</style>
 

@@ -3,7 +3,7 @@
 //  svg d3 dom element. define the <svg container then what
 //  we want in the container, her a <rect for our chart we can then
 //  call the component in our app component wiht some test w/h values
-function Background(width, height) {
+function Background({width, height}) {
 	return (
         <svg width={width} height={height}>
             <rect
@@ -27,8 +27,19 @@ class App extends React.Component {
 	render() {
 		const {data} = this.state;
 		return (
-		<div>
+		<div className="app">
             <Background width={100} height={100} />
+            <style jsx>{`
+            .app {
+                display:flex;
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+            }
+            `}</style>
+
         </div>
 		);
 	}

@@ -1,6 +1,7 @@
 import {LinearGradient} from '@vx/gradient';
 import {withScreenSize} from '@vx/responsive';
 import Chart from '../components/chart';
+
 function Background({width, height}) {
 	return (
         <svg width={width} height={height}>
@@ -28,15 +29,15 @@ class App extends React.Component {
 		fetch('http://localhost:8000')
         .then(res => res.json())
         .then(json => {
-            this.setState({
-                data: json
-            });
-        });
+	this.setState({
+		data: json
+	});
+});
 	}
 	render() {
 		const {screenWidth, screenHeight} = this.props;
 		const {data} = this.state;
-		// console.log(data);
+		// Console.log(data);
 		return (
 		<div className="app">
             <Background width={screenWidth} height={screenHeight} />

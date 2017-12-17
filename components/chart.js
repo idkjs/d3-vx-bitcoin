@@ -68,7 +68,7 @@ function Chart({ data, parentWidth, parentHeight }) {
           numTicks={4}
           hideAxisLine
           hideTicks
-          tickLabelComponent
+          tickLabelComponent={<text fill="#ffffff" fontSize={11} />}
         />
         <LinearGradient
           id="area-fill"

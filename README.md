@@ -128,3 +128,11 @@ yText={yScale(maxPrice)}
 * place at beginning of svg element so it shows everywhere?
 
 - `numTicks={4}` attr, tells the element to only render the bottom values every 4 ticks, gets us less crowded axis-bottom
+
+## tickLabelComponent
+
+* a formatted text component around each tick value
+
+```js
+tickLabelComponent={<text fill="#ffffff" fontSize={11} />}
+```

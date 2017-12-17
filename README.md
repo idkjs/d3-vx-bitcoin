@@ -29,3 +29,16 @@
 
 * draws shape between the bottom a line shape and the bottom of the chart.
 * example: https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252
+
+```js
+return (
+  <div>
+    <svg width={width} height={height}>
+      <AreaClosed data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
+      <LinePath data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
+    </svg>
+  </div>
+);
+```
+
+## LinearGradient to ...

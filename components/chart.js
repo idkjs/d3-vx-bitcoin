@@ -5,6 +5,7 @@ import { LinearGradient } from "@vx/gradient";
 import formatPrice from "../utils/formatPrice";
 
 import MaxPrice from "./maxprice";
+import MinPrice from "./minprice";
 
 function Chart({ data, parentWidth, parentHeight }) {
   /** Define margin for this div to pass to calculation for svg */
@@ -29,14 +30,13 @@ function Chart({ data, parentWidth, parentHeight }) {
   const minPrice = Math.min(...data.map(y));
   const maxPrice = Math.max(...data.map(y));
   const maxPriceData = [
-    {
-      time: x(firstPoint),
-      price: maxPrice
-    },
-    {
-      time: x(currentPoint),
-      price: maxPrice
-    }
+    { time: x(firstPoint), price: maxPrice },
+    { time: x(currentPoint), price: maxPrice }
+  ];
+
+  const minPriceData = [
+    { time: x(firstPoint), price: minPrice },
+    { time: x(currentPoint), price: minPrice }
   ];
 
   const xScale = scaleTime({
@@ -73,6 +73,15 @@ function Chart({ data, parentWidth, parentHeight }) {
           y={y}
           label={formatPrice(maxPrice)}
           yText={yScale(maxPrice)}
+        />
+        <MinPrice
+          data={minPriceData}
+          yScale={yScale}
+          xScale={xScale}
+          x={x}
+          y={y}
+          label={formatPrice(minPrice)}
+          yText={yScale(minPrice)}
         />
         <AreaClosed
           data={data}

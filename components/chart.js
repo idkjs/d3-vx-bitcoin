@@ -22,8 +22,22 @@ function Chart({ data, parentWidth, parentHeight }) {
   const x = d => new Date(d.time);
   const y = d => d.price;
 
+  const firstPoint = data[0];
+  const currentPoint = data[data.length - 1];
+
   const minPrice = Math.min(...data.map(y));
   const maxPrice = Math.max(...data.map(y));
+  const maxPriceData = [
+    {
+      time: x(firstPoint),
+      price: maxPrice
+    },
+    {
+      time: x(currentPoint),
+      price: maxPrice
+    }
+  ];
+
   const xScale = scaleTime({
     range: [0, width],
     domain: [Math.min(...data.map(x)), Math.max(...data.map(x))]
@@ -34,7 +48,7 @@ function Chart({ data, parentWidth, parentHeight }) {
     domain: [minPrice, maxPrice]
   });
 
-  // console.log(xScale.domain());
+  // Console.log(xScale.domain());
   // console.log(yScale.domain());
 
   /* end accessor values */
@@ -50,7 +64,15 @@ function Chart({ data, parentWidth, parentHeight }) {
           fromOpacity={0.3}
           toOpacity={0}
         />
-        <MaxPrice data={{}} yScale={yScale} xScale={xScale} x={x} y={y} />
+        <MaxPrice
+          data={maxPriceData}
+          yScale={yScale}
+          xScale={xScale}
+          x={x}
+          y={y}
+          label={maxPrice}
+          yText={0}
+        />
         <AreaClosed
           data={data}
           yScale={yScale}

@@ -96,3 +96,21 @@ return (
 ```js
 <MaxPrice data={{}} yScale={yScale} xScale={xScale} x={x} y={y} />
 ```
+
+## maxPrice data
+
+* data is an array of objects that will have values we want to render on the x axis at top of chart. Each point will be result of a function to calculate diff in prices that we have to create. `<MaxPrice data={[{},{}]}`. x should go from the first point on the top left and move across to the right to end of chart. Y value is a constant being are maxPrice. x is a function that calculates diff of max price to current price.
+
+```js
+const firstPoint = data[0];
+const currentPoint = data[data.length -1];
+
+<MaxPrice data={[{
+  time: x(firstPoint),
+  price: y(maxPrice)
+},{
+  time: x(currentPoint),
+  price: y(maxPrice)
+}]}
+label={maxprice}
+```

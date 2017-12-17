@@ -119,3 +119,5 @@ yText={yScale(maxPrice)}
 ## yText attr
 
 * set value of yText attr to yScale() passing in maxPrice which spreads the values of `const maxPrice = Math.max(...data.map(y));` into the yText label space.
+
+- in maxprice component add attr `fill="white" dy="1.3em" dx="1em"` to style so the yText shows. The text element is used to write text at a location. The location is given in absolute terms with the x and y attributes or a relative location with dx and dy attributes. see: http://www.svgbasics.com/simple_text.html

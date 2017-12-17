@@ -141,9 +141,25 @@ tickLabelComponent={<text fill="#ffffff" fontSize={11} />}
 
 ## Tooltips @vx/tooltip
 
-* import withToolTip, toolTip.
+* import withTooltip HOC, toolTip.
+
+- HOC has methods tooltipLeft, tooltipRight, tooltipData, showtoolTip, hidetoolTip that we can call once we pass are chart into it in export.
+
 * goal is to use tool tip to show some additional info about where mouse is pointed anywhere on the chart. We can import Bar from Shape, and let it track our mouse. Bar can be invisible, just using for tracking.
 * import Bar from "@vx/shape";
 
 - create reference from mouse coordinates to svg coordinates to get data at that point
 - to do this we need to store a reference to the svg. We need to change chart component to class component because we need state from svg which we will access via props.
+
+- create ref in <svg> `<svg ref={s => this.svg - s}...>`, we will ref this in <Bar later.
+- set up <Bar /> to track mouse movements
+
+```js
+<Bar
+  width={width}
+  height={height}
+  fill="transparent"
+  onMouseMove={data => event => {}}
+  onMouseLeave={data => event => {}}
+/>
+```

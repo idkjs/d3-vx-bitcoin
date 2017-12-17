@@ -3,7 +3,7 @@ import { scaleTime, scaleLinear } from "@vx/scale";
 import { LinePath, AreaClosed, Bar } from "@vx/shape";
 import { LinearGradient } from "@vx/gradient";
 import { AxisBottom } from "@vx/axis";
-import { withToolTip, toolTip } from "@vx/tooltip";
+import { withTooltip, toolTip } from "@vx/tooltip";
 import formatPrice from "../utils/formatPrice";
 
 import MaxPrice from "./maxprice";
@@ -14,7 +14,16 @@ class Chart extends React.Component {
     super(props);
   }
   render() {
-    const { data, parentWidth, parentHeight } = this.props;
+    const {
+      data,
+      parentWidth,
+      parentHeight,
+      tooltipLeft,
+      tooltipRight,
+      tooltipData,
+      showtoolTip,
+      hidetoolTip
+    } = this.props;
 
     /** Define margin for this div to pass to calculation for svg */
     const margin = {
@@ -125,4 +134,4 @@ class Chart extends React.Component {
   }
 }
 
-export default withParentSize(Chart);
+export default withParentSize(withTooltip(Chart));

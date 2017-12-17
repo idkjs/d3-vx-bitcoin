@@ -126,3 +126,5 @@ yText={yScale(maxPrice)}
 
 * use to show days from data at the bottom.
 * place at beginning of svg element so it shows everywhere?
+
+- `numTicks={4}` attr, tells the element to only render the bottom values every 4 ticks, gets us less crowded axis-bottom

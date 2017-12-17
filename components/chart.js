@@ -3,6 +3,7 @@ import { scaleTime, scaleLinear } from "@vx/scale";
 import { LinePath, AreaClosed, Bar } from "@vx/shape";
 import { LinearGradient } from "@vx/gradient";
 import { AxisBottom } from "@vx/axis";
+import { localPoint } from "@vx/event";
 import { withTooltip, toolTip } from "@vx/tooltip";
 import formatPrice from "../utils/formatPrice";
 

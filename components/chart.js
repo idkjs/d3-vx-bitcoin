@@ -42,7 +42,7 @@ function Chart({ data, parentWidth, parentHeight }) {
     range: [0, width],
     domain: [Math.min(...data.map(x)), Math.max(...data.map(x))]
   });
-
+  /** defines the scale of a y axis line */
   const yScale = scaleLinear({
     range: [height, 0],
     domain: [minPrice, maxPrice]
@@ -71,7 +71,7 @@ function Chart({ data, parentWidth, parentHeight }) {
           x={x}
           y={y}
           label={maxPrice}
-          yText={0}
+          yText={yScale(maxPrice)}
         />
         <AreaClosed
           data={data}

@@ -113,4 +113,9 @@ const currentPoint = data[data.length -1];
   price: y(maxPrice)
 }]}
 label={maxprice}
+yText={yScale(maxPrice)}
 ```
+
+## yText attr
+
+* set value of yText attr to yScale() passing in maxPrice which spreads the values of `const maxPrice = Math.max(...data.map(y));` into the yText label space.

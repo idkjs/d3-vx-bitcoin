@@ -3,6 +3,8 @@ import { scaleTime, scaleLinear } from "@vx/scale";
 import { LinePath, AreaClosed } from "@vx/shape";
 import { LinearGradient } from "@vx/gradient";
 
+import MaxPrice from "./maxprice";
+
 function Chart({ data, parentWidth, parentHeight }) {
   /** Define margin for this div to pass to calculation for svg */
   const margin = {
@@ -48,6 +50,7 @@ function Chart({ data, parentWidth, parentHeight }) {
           fromOpacity={0.3}
           toOpacity={0}
         />
+        <MaxPrice data={{}} yScale={yScale} xScale={xScale} x={x} y={y} />
         <AreaClosed
           data={data}
           yScale={yScale}

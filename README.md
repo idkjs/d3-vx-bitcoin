@@ -88,3 +88,11 @@ return (
   stroke="transparent" // stroke is the black line at bottom of chart, transparent value makes it invisibile, no color so cant see.
 />
 ```
+
+## maxprice.js
+
+* call <MaxPrice in chart.js. nice trick to pass empty object to data since we dont know what we want to pass yet. Allows image to compile and render so we can see while thinking through it.
+
+```js
+<MaxPrice data={{}} yScale={yScale} xScale={xScale} x={x} y={y} />
+```

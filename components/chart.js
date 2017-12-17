@@ -2,6 +2,7 @@ import { withParentSize } from "@vx/responsive";
 import { scaleTime, scaleLinear } from "@vx/scale";
 import { LinePath, AreaClosed } from "@vx/shape";
 import { LinearGradient } from "@vx/gradient";
+import formatPrice from "../utils/formatPrice";
 
 import MaxPrice from "./maxprice";
 
@@ -70,7 +71,7 @@ function Chart({ data, parentWidth, parentHeight }) {
           xScale={xScale}
           x={x}
           y={y}
-          label={maxPrice}
+          label={formatPrice(maxPrice)}
           yText={yScale(maxPrice)}
         />
         <AreaClosed

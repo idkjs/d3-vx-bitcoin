@@ -1,8 +1,9 @@
 import { withParentSize } from "@vx/responsive";
 import { scaleTime, scaleLinear } from "@vx/scale";
-import { LinePath, AreaClosed } from "@vx/shape";
+import { LinePath, AreaClosed, Bar } from "@vx/shape";
 import { LinearGradient } from "@vx/gradient";
 import { AxisBottom } from "@vx/axis";
+import { withToolTip, toolTip } from "@vx/tooltip";
 import formatPrice from "../utils/formatPrice";
 
 import MaxPrice from "./maxprice";
@@ -44,7 +45,7 @@ function Chart({ data, parentWidth, parentHeight }) {
     range: [0, width],
     domain: [Math.min(...data.map(x)), Math.max(...data.map(x))]
   });
-  /** defines the scale of a y axis line */
+  /** Defines the scale of a y axis line */
   const yScale = scaleLinear({
     range: [height, 0],
     domain: [minPrice, maxPrice]
@@ -105,6 +106,7 @@ function Chart({ data, parentWidth, parentHeight }) {
           stroke="transparent"
         />
         <LinePath data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
+        <Bar width={width} height={height} fill="#ffffff" />
       </svg>
     </div>
   );

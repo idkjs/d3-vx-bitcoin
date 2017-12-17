@@ -133,6 +133,14 @@ yText={yScale(maxPrice)}
 
 * a formatted text component around each tick value
 
+- color isnt rendering for some reason, TODO
+
 ```js
 tickLabelComponent={<text fill="#ffffff" fontSize={11} />}
 ```
+
+## Tooltips @vx/tooltip
+
+* import withToolTip, toolTip.
+* goal is to use tool tip to show some additional info about where mouse is pointed anywhere on the chart. We can import Bar from Shape, and let it track our mouse. Bar can be invisible, just using for tracking.
+* import Bar from "@vx/shape";

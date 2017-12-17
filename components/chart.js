@@ -60,7 +60,16 @@ function Chart({ data, parentWidth, parentHeight }) {
     <div>
       <svg width={width} height={parentHeight}>
         {/* top: shortcut for translate y value */}
-        <AxisBottom top={yScale(minPrice)} data={data} scale={xScale} x={x} />
+        <AxisBottom
+          top={yScale(minPrice)}
+          data={data}
+          scale={xScale}
+          x={x}
+          numTicks={4}
+          hideAxisLine
+          hideTicks
+          tickLabelComponent
+        />
         <LinearGradient
           id="area-fill"
           from="#46a2b4"

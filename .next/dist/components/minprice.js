@@ -42,7 +42,7 @@ exports.default = function (_ref) {
         fileName: _jsxFileName,
         lineNumber: 7
       }
-    }), _react2.default.createElement("text", { fill: "#6086d6", dy: "1.3em", dx: "1em", y: yText, fontSize: "12", __source: {
+    }), _react2.default.createElement("text", { fill: "#6086d6", dy: "-.5em", dx: "1em", y: yText, fontSize: "12", __source: {
         fileName: _jsxFileName,
         lineNumber: 16
       }

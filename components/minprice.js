@@ -13,7 +13,7 @@ export default ({ data, label, yScale, xScale, yText, x, y }) => {
         strokeDasharray="4.4"
         strokeOpacity="0.4"
       />
-      <text fill="#6086d6" dy="1.3em" dx="1em" y={yText} fontSize="12">
+      <text fill="#6086d6" dy="-.5em" dx="1em" y={yText} fontSize="12">
         {label}
       </text>
     </g>

@@ -23,7 +23,7 @@ class Chart extends React.Component {
       tooltipLeft,
       tooltipRight,
       tooltipData,
-      showtoolTip,
+      showTooltip,
       hideTooltip
     } = this.props;
 
@@ -77,7 +77,7 @@ class Chart extends React.Component {
     //  and x and y accessors
     return (
       <div>
-        <svg ref={s => this.svg - s} width={width} height={parentHeight}>
+        <svg ref={s => (this.svg = s)} width={width} height={parentHeight}>
           {/* top: shortcut for translate y value */}
           <AxisBottom
             top={yScale(minPrice)}
@@ -129,19 +129,20 @@ class Chart extends React.Component {
             width={width}
             height={height}
             fill="transparent"
+            onMouseLeave={data => event => hideTooltip()}
             onMouseMove={data => event => {
               const { x: xPoint } = localPoint(this.svg, event);
               const x0 = xScale.invert(xPoint);
               const index = bisectDate(data, x0, 1);
+              const d0 = data[index - 1];
+              const d1 = data[index];
               const d = x0 - xScale(x(d0)) > xScale(x(d1)) - x0 ? d1 : d0;
-              // Call showtoolTip and define what should shop up at each position
-              showtoolTip({
+              showTooltip({
+                tooltipData: d,
                 tooltipLeft: xScale(x(d)),
-                tooltipRight: yScale(y(d)),
-                tooltipData: d
+                tooltipTop: yScale(y(d))
               });
             }}
-            onMouseLeave={data => event => hideTooltip()}
           />
           {tooltipData && (
             <g>

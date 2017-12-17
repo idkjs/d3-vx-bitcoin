@@ -1,7 +1,8 @@
 import { withParentSize } from "@vx/responsive";
 // Import d3 methods to render x and y axis
 import { scaleTime, scaleLinear } from "@vx/scale";
-import { LinePath } from "@vx/shape";
+import { LinePath, AreaClosed } from "@vx/shape";
+import Area from "@vx/shape/build/shapes/Area";
 
 function Chart({ data, parentWidth, parentHeight }) {
   /** Define margin for this div to pass to calculation for svg */
@@ -53,6 +54,7 @@ function Chart({ data, parentWidth, parentHeight }) {
   return (
     <div>
       <svg width={width} height={height}>
+        <AreaClosed data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
         <LinePath data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
       </svg>
     </div>

@@ -24,3 +24,8 @@
   \*/
 
 - accessors - xScale, yScale gets us our data. Now we need a shape to draw the data into. In Charts we use something like LinePath from @vx/shape
+
+## areaClosed /fill
+
+* draws shape between the bottom a line shape and the bottom of the chart.
+* example: https://bl.ocks.org/d3noob/119a138ef9bd1d8f0a8d57ea72355252

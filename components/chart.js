@@ -152,7 +152,7 @@ class Chart extends React.Component {
                 to={{ x: tooltipLeft, y: yScale(y(minPriceData[0])) }}
                 stroke="#ffffff"
               />
-              <circle r="4" cx={tooltipLeft} cy={tooltipTop} />
+              <circle r="6" cx={tooltipLeft} cy={tooltipTop} fill="#00f1a1" />
             </g>
           )}
         </svg>

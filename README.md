@@ -25,6 +25,22 @@
 
 - accessors - xScale, yScale gets us our data. Now we need a shape to draw the data into. In Charts we use something like LinePath from @vx/shape
 
+  /\*\* Define accessor
+
+  * see: https://github.com/d3/d3-array#d3-array
+  * define x and what data point we want for each x at that d/data point,
+  * then do same for y
+  * for x we want the date on the returned bitcoin value json
+  * for y we want the price on that d / data point
+    \*/
+
+    /\*\* Scale value to map value from a domain to range
+
+  * see: https://github.com/d3/d3-scale
+  * range defines starting point for data to show and endpoint
+  * domain is what data to spread over that range.
+    \*/
+
 ## areaClosed /fill
 
 * draws shape between the bottom a line shape and the bottom of the chart.
@@ -42,3 +58,33 @@ return (
 ```
 
 ## LinearGradient to ...
+
+* example: https://bl.ocks.org/mbostock/1086421
+* LinearGradient defines the properties of what we want the gradient to look like. We give an id so we can call it in the shape we want to show that gradient look in.
+* <LinearGradient needs an id attribute, from attr for starting color to for last color in the gradient range. Also define what opacity start and finish you want with same syntax.
+
+- you end up with the fill getting less opaque the higher up the line vectors
+
+```js
+<LinearGradient
+  id="area-fill"
+  from="somecolor code"
+  to="some color code"
+  fromOpacity={0.3}
+  toOpacity={0}
+/>
+```
+
+* then pass the id to an shape fill attribute.
+
+```js
+<AreaClosed
+  data={data}
+  yScale={yScale}
+  xScale={xScale}
+  x={x}
+  y={y}
+  fill="url(#area-fill)"
+  stroke="transparent" // stroke is the black line at bottom of chart, transparent value makes it invisibile, no color so cant see.
+/>
+```

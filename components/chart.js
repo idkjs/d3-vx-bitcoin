@@ -125,8 +125,11 @@ class Chart extends React.Component {
             width={width}
             height={height}
             fill="transparent"
-            onMouseMove={data => event => {}}
-            onMouseLeave={data => event => {}}
+            onMouseMove={data => event => {
+              const { x: xPoint } = localPoint(this.svg, event);
+              const x0 = xScale.invert(xPoint);
+            }}
+            onMouseLeave={data => event => hidetoolTip()}
           />
         </svg>
       </div>

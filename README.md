@@ -163,3 +163,16 @@ tickLabelComponent={<text fill="#ffffff" fontSize={11} />}
   onMouseLeave={data => event => {}}
 />
 ```
+
+* converting local coords to x/y coord
+* localPoint is where you pass in your svg ref.
+* x coord is aliased to xPoint
+
+```js
+onMouseMove={data => event => {
+  const {x: xPoint} = localPoint(this.svg, event);
+
+  // get x at 0 by inverting xPoint value through xScale() invert method
+  const x0 = xScale.invert(xPoint);
+}}
+```

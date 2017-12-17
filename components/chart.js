@@ -131,9 +131,16 @@ class Chart extends React.Component {
               const x0 = xScale.invert(xPoint);
               const index = bisectDate(data, x0, 1);
               const d = x0 - xScale(x(d0)) > xScale(x(d1)) - x0 ? d1 : d0;
+              // call showtoolTip and define what should shop up at each position
+              showtoolTip({
+                tooltipLeft: xScale(x(d)),
+                tooltipRight: yScale(y(d)),
+                tooltipData: d
+              });
             }}
             onMouseLeave={data => event => hidetoolTip()}
           />
+          {tooltipData && <g />}
         </svg>
       </div>
     );

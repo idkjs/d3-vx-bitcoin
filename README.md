@@ -186,5 +186,18 @@ onMouseMove={data => event => {
   const d1 = data[index];
 // actual d/data value is going to be whichever one, d0 or d1 is greater than d/data
 const d = x0 - xScale(x(d0)) > xScale(x(d1)) - x0 ? d1 : d0;
+showtoolTip({
+  tooltipLeft:xScale(x(d)),
+  tooltipRight:yScale(y(d)),
+  tooltipData: d
+});
 }}
+```
+
+* now that have what to do with data, need to draw out the lines to render it:
+
+```js
+{
+  tooltipData && <g />;
+}
 ```

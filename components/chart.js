@@ -58,8 +58,9 @@ function Chart({ data, parentWidth, parentHeight }) {
   //  and x and y accessors
   return (
     <div>
-      <svg width={width} height={height}>
-        <AxisBottom data={data} scale={xScale} x={x} />
+      <svg width={width} height={parentHeight}>
+        {/* top: shortcut for translate y value */}
+        <AxisBottom top={yScale(minPrice)} data={data} scale={xScale} x={x} />
         <LinearGradient
           id="area-fill"
           from="#46a2b4"

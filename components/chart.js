@@ -2,6 +2,7 @@ import { withParentSize } from "@vx/responsive";
 import { scaleTime, scaleLinear } from "@vx/scale";
 import { LinePath, AreaClosed } from "@vx/shape";
 import { LinearGradient } from "@vx/gradient";
+import { AxisBottom } from "@vx/axis";
 import formatPrice from "../utils/formatPrice";
 
 import MaxPrice from "./maxprice";
@@ -58,6 +59,7 @@ function Chart({ data, parentWidth, parentHeight }) {
   return (
     <div>
       <svg width={width} height={height}>
+        <AxisBottom data={data} scale={xScale} x={x} />
         <LinearGradient
           id="area-fill"
           from="#46a2b4"

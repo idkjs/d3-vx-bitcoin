@@ -151,6 +151,7 @@ class Chart extends React.Component {
                 from={{ x: tooltipLeft, y: yScale(y(maxPriceData[0])) }}
                 to={{ x: tooltipLeft, y: yScale(y(minPriceData[0])) }}
                 stroke="#ffffff"
+                strokeDasharray="2.2"
               />
               <circle
                 r="8"

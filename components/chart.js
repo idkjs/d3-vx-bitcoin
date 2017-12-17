@@ -65,7 +65,7 @@ class Chart extends React.Component {
     //  and x and y accessors
     return (
       <div>
-        <svg width={width} height={parentHeight}>
+        <svg ref={s => this.svg - s} width={width} height={parentHeight}>
           {/* top: shortcut for translate y value */}
           <AxisBottom
             top={yScale(minPrice)}
@@ -112,7 +112,13 @@ class Chart extends React.Component {
             stroke="transparent"
           />
           <LinePath data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
-          <Bar width={width} height={height} fill="transparent" />
+          <Bar
+            width={width}
+            height={height}
+            fill="transparent"
+            onMouseMove={data => event => {}}
+            onMouseLeave={data => event => {}}
+          />
         </svg>
       </div>
     );

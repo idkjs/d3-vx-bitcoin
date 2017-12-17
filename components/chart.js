@@ -1,6 +1,6 @@
 import { withParentSize } from "@vx/responsive";
 import { scaleTime, scaleLinear } from "@vx/scale";
-import { LinePath, AreaClosed, Bar } from "@vx/shape";
+import { LinePath, AreaClosed, Bar, Line } from "@vx/shape";
 import { LinearGradient } from "@vx/gradient";
 import { AxisBottom } from "@vx/axis";
 import { localPoint } from "@vx/event";
@@ -10,6 +10,7 @@ import formatPrice from "../utils/formatPrice";
 import MaxPrice from "./maxprice";
 import MinPrice from "./minprice";
 import { bisector } from "d3-array";
+
 class Chart extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +24,7 @@ class Chart extends React.Component {
       tooltipRight,
       tooltipData,
       showtoolTip,
-      hidetoolTip
+      hideTooltip
     } = this.props;
 
     /** Define margin for this div to pass to calculation for svg */
@@ -124,6 +125,7 @@ class Chart extends React.Component {
           />
           <LinePath data={data} yScale={yScale} xScale={xScale} x={x} y={y} />
           <Bar
+            data={data}
             width={width}
             height={height}
             fill="transparent"
@@ -132,16 +134,24 @@ class Chart extends React.Component {
               const x0 = xScale.invert(xPoint);
               const index = bisectDate(data, x0, 1);
               const d = x0 - xScale(x(d0)) > xScale(x(d1)) - x0 ? d1 : d0;
-              // call showtoolTip and define what should shop up at each position
+              // Call showtoolTip and define what should shop up at each position
               showtoolTip({
                 tooltipLeft: xScale(x(d)),
                 tooltipRight: yScale(y(d)),
                 tooltipData: d
               });
             }}
-            onMouseLeave={data => event => hidetoolTip()}
+            onMouseLeave={data => event => hideTooltip()}
           />
-          {tooltipData && <g />}
+          {tooltipData && (
+            <g>
+              <Line
+                from={{ x: tooltipLeft, y: yScale(y(maxPriceData[0])) }}
+                to={{ x: tooltipLeft, y: yScale(y(minPriceData[0])) }}
+                stroke="#ffffff"
+              />
+            </g>
+          )}
         </svg>
       </div>
     );

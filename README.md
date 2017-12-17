@@ -168,11 +168,23 @@ tickLabelComponent={<text fill="#ffffff" fontSize={11} />}
 * localPoint is where you pass in your svg ref.
 * x coord is aliased to xPoint
 
+- going to need d3 bisector for insertion point defintions see: https://github.com/d3/d3-array/blob/master/src/bisector.js and https://github.com/d3/d3-array
+
+- import {bisector } from "d3-array"; to get access to it, then use it in mousemovements
+- define bisect point: `const bisectDate = bisector(d => x(d)).left`. bisector goes through the points 'd' then for x value of d gets the left value.
+
 ```js
 onMouseMove={data => event => {
   const {x: xPoint} = localPoint(this.svg, event);
 
   // get x at 0 by inverting xPoint value through xScale() invert method
   const x0 = xScale.invert(xPoint);
+  // this take d.left at data d, for x0...what is 1?
+  const index = bisectDate(data, x0, 1);
+  // get value on either side of index
+  const d0 = data[index - 1];
+  const d1 = data[index];
+// actual d/data value is going to be whichever one, d0 or d1 is greater than d/data
+const d = x0 - xScale(x(d0)) > xScale(x(d1)) - x0 ? d1 : d0;
 }}
 ```

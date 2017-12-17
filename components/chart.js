@@ -8,7 +8,7 @@ import formatPrice from "../utils/formatPrice";
 
 import MaxPrice from "./maxprice";
 import MinPrice from "./minprice";
-
+import { bisector } from "d3-array";
 class Chart extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +35,7 @@ class Chart extends React.Component {
     const width = parentWidth - margin.left - margin.right;
     const height = parentHeight - margin.top - margin.bottom;
 
+    const bisectDate = bisector(d => x(d)).left;
     /** Define accessors and values to be passed to our shapes
      */
 
@@ -128,6 +129,8 @@ class Chart extends React.Component {
             onMouseMove={data => event => {
               const { x: xPoint } = localPoint(this.svg, event);
               const x0 = xScale.invert(xPoint);
+              const index = bisectDate(data, x0, 1);
+              const d = x0 - xScale(x(d0)) > xScale(x(d1)) - x0 ? d1 : d0;
             }}
             onMouseLeave={data => event => hidetoolTip()}
           />
